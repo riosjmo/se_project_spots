@@ -1,0 +1,12 @@
+.footer {
+  display: flex;
+  justify-content: center;
+}
+
+.footer__copyright {
+  color: #212121;
+  margin: 60px;
+  opacity: 70%;
+  size: 16px;
+  line-height: 16px;
+}
