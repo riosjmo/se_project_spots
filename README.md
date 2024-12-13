@@ -18,6 +18,6 @@ The project is a social media type of website that has many different features a
 
   It is deployed on Github.
 
-  - Deployement Link: 
+  - [Deployement Link: https://riosjmo.github.io/se_project_spots/](https://riosjmo.github.io/se_project_spots/)
 
 
