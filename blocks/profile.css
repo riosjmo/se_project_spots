@@ -43,6 +43,10 @@
   cursor: pointer;
 }
 
+.profile__edit-btn:hover {
+  color:#212121;
+  }
+
 .profile__add-btn {
   display: flex;
   align-self: flex-end;
@@ -57,6 +61,10 @@
   font-weight: 500;
   font-size: 16px;
   line-height: 16px;
+}
+
+.profile__add-btn:hover {
+opacity: 80%;
 }
 
 @media screen and (max-width: 627px) {
