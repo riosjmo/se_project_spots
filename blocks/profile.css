@@ -60,7 +60,7 @@
 
 .profile__edit-btn:hover {
   opacity: 100%;
-  }
+}
 
 .profile__add-btn {
   display: flex;
@@ -79,7 +79,7 @@
 }
 
 .profile__add-btn:hover {
-opacity: 80%;
+  opacity: 80%;
 }
 
 @media screen and (max-width: 627px) {
@@ -100,22 +100,10 @@ opacity: 80%;
   .profile__name {
     font-size: 20px;
     margin: 0 0 6px;
-    text-overflow: ellipsis;
-  overflow: hidden;
-  display: -webkit-box;
-  -webkit-line-clamp: 3;
-  -webkit-box-orient: vertical;
-  max-width: 353px;
   }
 
   .profile__description {
     margin: 0 0 32px;
-    text-overflow: ellipsis;
-  overflow: hidden;
-  display: -webkit-box;
-  -webkit-line-clamp: 3;
-  -webkit-box-orient: vertical;
-  max-width: 353px;
   }
 
   .profile__column {
