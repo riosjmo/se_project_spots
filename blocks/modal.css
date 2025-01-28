@@ -35,6 +35,7 @@
   background: transparent;
   border: none;
   opacity: 40%;
+  cursor: pointer;
 }
 
 .modal__close-btn:hover {
