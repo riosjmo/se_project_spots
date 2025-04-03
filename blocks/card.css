@@ -39,6 +39,15 @@
   opacity: 100%;
 }
 
+.card__like-btn_liked {
+background-image: url(../images/like-icon-clicked.svg);
+opacity: 100%;
+}
+
+.card__like-btn_liked:hover {
+background-image: url(../images/like-icon-liked-hover.svg.svg);
+}
+
 @media screen and (max-width: 627px) {
   .card__image {
     height: 288px;
