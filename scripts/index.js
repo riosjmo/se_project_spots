@@ -54,8 +54,9 @@ function getCardElement(data) {
 
   const cardNameEl = cardElement.querySelector(".card__title");
   const cardImageEl = cardElement.querySelector(".card__image");
-  const cardLikeBtn = cardElement.querySelector(".card__like-btn")
+  const cardLikeBtn = cardElement.querySelector(".card__like-btn");
   //TODO - Select the delete button
+  const cardDeleteBtn = cardElement.querySelector(".card__delete-btn");
 
   cardNameEl.textContent = data.name;
   cardImageEl.src = data.link;
@@ -66,6 +67,9 @@ function getCardElement(data) {
   });
 
   // TODO: set the listener on delete button
+  cardDeleteBtn.addEventListener("click", () => {
+    cardElement.remove();
+  });
   // TODO: The handler should remove the card from the DOM, See chapter 4: basics of DOM, shows how to remove elements from DOM
 
   return cardElement;
