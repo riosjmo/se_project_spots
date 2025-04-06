@@ -2,6 +2,7 @@
   position: relative;
   display: inline-block;
   width: 100%;
+  cursor: pointer;
 }
 
 .card__image {
@@ -41,6 +42,10 @@
   cursor: pointer;
 }
 
+.card__like-btn:hover {
+  opacity: 100%;
+}
+
 .card__delete-btn {
   background-image: url(../images/delete-icon-default.svg);
   height: 32px;
@@ -57,10 +62,6 @@
 .card__delete-btn:hover {
   background-image: url(../images/delete-icon-hover.svg);
   cursor: pointer;
-}
-
-.card__like-btn:hover {
-  opacity: 100%;
 }
 
 .card__like-btn_liked {
