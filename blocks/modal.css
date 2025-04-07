@@ -33,13 +33,14 @@
 
 .modal__content_type_preview {
   padding: 0;
+  width: auto;
 }
 
 .modal__image {
   width: 100%;
-  max-width: 80vw;
+  max-width: 100%;
   max-height: 80vh;
-  object-fit: cover;
+  object-fit: contain;
   border-radius: 8px;
   display: block;
 }
@@ -84,8 +85,8 @@ opacity: 100%;
 }
 
 .modal__title {
-  margin: 0 0 32px;
-font-family: Poppins, ;
+margin: 0 0 32px;
+font-family: "Poppins", sans-serif;
 font-size: 32px;
 font-weight: 500;
 line-height: 1;
@@ -93,6 +94,7 @@ line-height: 1;
 }
 
 .modal__label {
+  font-family: "Poppins", sans-serif;
   display: flex;
   flex-direction: column;
   gap: 8px;
@@ -103,11 +105,11 @@ line-height: 1;
 .modal__input {
   padding: 16px 12px;
   border-radius: 8px;
-  opacity: 50%;
-  font-family: Poppins;
+  opacity: 100%;
+  font-family: "Poppins", sans-serif;
   font-size: 16px;
   font-weight: 500;
-  line-height: 17.6px
+  line-height: 17.6px;
 }
 
 body.modal-open {
@@ -136,6 +138,10 @@ body.modal-open {
     padding: 12px;
   }
 
+  .modal__content {
+    padding: 12px 12px 12px;
+  }
+
   .modal__title {
     font-size: 20px;
     margin: 10px 0 34px;
@@ -144,6 +150,12 @@ body.modal-open {
   .modal__close-btn {
     top: 12px;
     right: 12px;
+  }
+
+  .modal__content_type_preview {
+    max-width: 100vw;
+    width: auto;
+    padding: 0;
   }
 
   .modal__input {
@@ -156,5 +168,9 @@ body.modal-open {
 
   .modal__submit-btn {
     width: 100%;
+  }
+
+  .modal__close-btn_type_preview {
+    right: 16px;
   }
 }
