@@ -11,7 +11,7 @@
   justify-content: center;
   padding: 0 20px;
   visibility: hidden;
-  opacity:0;
+  opacity: 0;
   transition: visibility 0s linear 0.5s, opacity 0.5s linear;
 }
 
@@ -81,16 +81,15 @@
 }
 
 .modal__close-btn:hover {
-opacity: 100%;
+  opacity: 100%;
 }
 
 .modal__title {
-margin: 0 0 32px;
-font-family: "Poppins", sans-serif;
-font-size: 32px;
-font-weight: 500;
-line-height: 1;
-
+  margin: 0 0 32px;
+  font-family: "Poppins", sans-serif;
+  font-size: 32px;
+  font-weight: 500;
+  line-height: 1;
 }
 
 .modal__label {
@@ -100,7 +99,7 @@ line-height: 1;
   gap: 8px;
   margin-bottom: 32px;
   opacity: 80%;
-  color:#212121;
+  color: #212121;
   font-size: 16px;
   font-weight: 500;
   line-height: 100%;
@@ -122,7 +121,7 @@ line-height: 1;
   border: none;
   border-radius: 8px;
   background-color: #212121;
-  color: #FCF5E5;
+  color: #fcf5e5;
   font-family: "Poppins", sans-serif;
   font-size: 16px;
   font-weight: 500;
@@ -171,8 +170,8 @@ line-height: 1;
   }
 
   .modal__input {
-  line-height: 1;
-  font-size: 16px;
+    line-height: 1;
+    font-size: 16px;
   }
 
   .modal__label {
