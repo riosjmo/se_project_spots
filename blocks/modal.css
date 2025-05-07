@@ -124,7 +124,7 @@
   font-family: "Poppins", sans-serif;
   font-size: 16px;
   font-weight: 500;
-  color: red;
+  color: #ff0000;
 }
 
 .modal__submit-btn {
@@ -142,6 +142,10 @@
 
 .modal__submit-btn:hover {
   opacity: 80%;
+}
+
+.modal__input_type_error {
+  border: 1px solid #FF000099;
 }
 
 @media screen and (max-width: 627px) {
