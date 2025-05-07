@@ -5,7 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="Photos of beautiful locations" />
     <meta name="author" content="Rio Morales" />
-    <meta name="keywords" content="HTML, CSS, TripleTen, Virtual, Travel, Photography, Cards" />
+    <meta
+      name="keywords"
+      content="HTML, CSS, TripleTen, Virtual, Travel, Photography, Cards"
+    />
     <link rel="stylesheet" href="./pages/index.css" />
     <link rel="icon" href="favicon.ico" type="image/x-icon" />
     <title>Spots</title>
@@ -68,7 +71,7 @@
           <img src="./images/x.svg" alt="X Button" />
         </button>
         <h2 class="modal__title">Edit Profile</h2>
-        <form name="edit-profile" class="modal__form">
+        <form id="edit-profile" class="modal__form" novalidate>
           <label for="profile-name-input" class="modal__label">
             Name
             <input
@@ -93,7 +96,10 @@
               minlength="2"
               maxlength="200"
             />
-            <span id="profile-description-input-error" class="modal__error"></span>
+            <span
+              id="profile-description-input-error"
+              class="modal__error"
+            ></span>
           </label>
           <button type="submit" class="modal__submit-btn">Save</button>
         </form>
@@ -106,7 +112,7 @@
           <img src="./images/x.svg" alt="X Button" />
         </button>
         <h2 class="modal__title">New Post</h2>
-        <form class="modal__form" id="add-card-form">
+        <form class="modal__form" id="add-card-form" novalidate>
           <label for="add-card-link-input" class="modal__label">
             Image Link
             <input
@@ -117,7 +123,7 @@
               placeholder="Paste your link to the picture"
               required
             />
-            <span  id="add-card-link-input-error" class="modal__error"></span>
+            <span id="add-card-link-input-error" class="modal__error"></span>
           </label>
           <label for="add-card-name-input" class="modal__label">
             Caption
@@ -145,11 +151,7 @@
           type="button"
           class="modal__close-btn modal__close-btn_type_preview"
         ></button>
-        <img
-          class="modal__image"
-          src=""
-          alt=""
-        />
+        <img class="modal__image" src="" alt="" />
         <p class="modal__caption"></p>
       </div>
     </div>

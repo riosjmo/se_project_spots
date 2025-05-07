@@ -144,6 +144,10 @@
   opacity: 80%;
 }
 
+.modal__submit-btn_disabled {
+  opacity: 50%;
+}
+
 .modal__input_type_error {
   border: 1px solid #FF000099;
 }
