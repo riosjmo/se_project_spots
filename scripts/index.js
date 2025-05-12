@@ -93,11 +93,13 @@ function getCardElement(data) {
 function openModal(modal) {
   modal.classList.add("modal_opened");
   document.body.classList.add("modal-open");
+  document.addEventListener("keydown", handleEscClose);
 }
 
 function closeModal(modal) {
   modal.classList.remove("modal_opened");
   document.body.classList.remove("modal-open");
+  document.removeEventListener("keydown", handleEscClose);
 }
 
 function handleEditFormSubmit(evt) {
@@ -153,3 +155,22 @@ initialCards.forEach((item) => {
   const cardElement = getCardElement(item);
   cardsList.append(cardElement);
 });
+
+const existModalsOverlay = document.querySelectorAll(".modal");
+
+existModalsOverlay.forEach((modal) => {
+  modal.addEventListener("mousedown", (evt) => {
+    if (evt.target === modal) {
+      modal.classList.remove("modal_opened");
+    }
+  });
+});
+
+function handleEscClose(evt) {
+  if (evt.key === "Escape") {
+    const openModal = document.querySelector(".modal.modal_opened");
+    if (openModal) {
+      closeModal(openModal);
+    }
+  }
+}
