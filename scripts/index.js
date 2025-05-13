@@ -131,7 +131,6 @@ profileEditButton.addEventListener("click", () => {
 });
 
 cardModalBtn.addEventListener("click", () => {
-  cardForm.reset();
   resetValidation(cardForm, [cardNameInput, cardLinkInput], settings);
   openModal(cardModal);
 });
@@ -162,6 +161,7 @@ existModalsOverlay.forEach((modal) => {
   modal.addEventListener("mousedown", (evt) => {
     if (evt.target === modal) {
       modal.classList.remove("modal_opened");
+      closeModal(openModal);
     }
   });
 });
