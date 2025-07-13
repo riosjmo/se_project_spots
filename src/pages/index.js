@@ -1,3 +1,31 @@
+import "./index.css";
+import avatarSrc from "../images/avatar.jpg";
+import plusIcon from "../images/plus.svg";
+import pencilIcon from "../images/pencil.svg";
+import headerLogo from "../images/logo.svg";
+import closeButton from "../images/x.svg";
+
+
+const profileAvatar = document.getElementById("profile-avatar");
+profileAvatar.src = avatarSrc;
+
+const addCardCloseBtn = document.getElementById("add-card-close-btn");
+addCardCloseBtn.src = closeButton;
+
+const editCardCloseBtn = document.getElementById("edit-card-close-btn");
+editCardCloseBtn.src = closeButton;
+
+const pencilImg = document.getElementById("pencil-icon");
+pencilImg.src = pencilIcon;
+
+const plusImg = document.getElementById("plus-icon");
+plusImg.src = plusIcon;
+
+const headerImg = document.getElementById("header-logo");
+headerImg.src = headerLogo;
+
+import { enableValidation, validationConfig, resetValidation, disableButton } from "../scripts/validation.js";
+
 const initialCards = [
   {
     name: "Val Thorens",
@@ -115,7 +143,7 @@ function handleAddCardSubmit(evt) {
   const cardElement = getCardElement(inputValue);
   cardsList.prepend(cardElement);
   evt.target.reset();
-  disableButton(cardSubmitBtn, settings);
+  disableButton(cardSubmitBtn, validationConfig);
   closeModal(cardModal);
 }
 
@@ -125,13 +153,13 @@ profileEditButton.addEventListener("click", () => {
   resetValidation(
     editFormElement,
     [editModalNameInput, editModalDescriptionInput],
-    settings
+    validationConfig
   );
   openModal(editModal);
 });
 
 cardModalBtn.addEventListener("click", () => {
-  resetValidation(cardForm, [cardNameInput, cardLinkInput], settings);
+  resetValidation(cardForm, [cardNameInput, cardLinkInput], validationConfig);
   openModal(cardModal);
 });
 
@@ -161,7 +189,7 @@ existModalsOverlay.forEach((modal) => {
   modal.addEventListener("mousedown", (evt) => {
     if (evt.target === modal) {
       modal.classList.remove("modal_opened");
-      closeModal(openModal);
+      closeModal(modal);
     }
   });
 });
@@ -174,3 +202,5 @@ function handleEscClose(evt) {
     }
   }
 }
+
+enableValidation(validationConfig);
