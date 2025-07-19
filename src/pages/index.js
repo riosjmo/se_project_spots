@@ -4,7 +4,7 @@ import plusIcon from "../images/plus.svg";
 import pencilIcon from "../images/pencil.svg";
 import headerLogo from "../images/logo.svg";
 import closeButton from "../images/x.svg";
-import Api from "../scripts/Api.js";
+import Api from "../utils/Api.js";
 
 const profileAvatar = document.getElementById("profile-avatar");
 profileAvatar.src = avatarSrc;
@@ -70,12 +70,15 @@ const api = new Api({
   },
 });
 
-api.getInitialCards().then((cards) => {
-  cards.forEach((item) => {
-  const cardElement = getCardElement(item);
-  cardsList.append(cardElement);
-  });
-});
+api
+  .getInitialCards()
+  .then((cards) => {
+    cards.forEach((item) => {
+      const cardElement = getCardElement(item);
+      cardsList.append(cardElement);
+    });
+  })
+  .catch(console.error);
 
 const profileEditButton = document.querySelector(".profile__edit-btn");
 const cardModalBtn = document.querySelector(".profile__add-btn");
