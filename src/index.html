@@ -19,11 +19,21 @@
       </header>
       <main class="content">
         <section class="profile page__section">
+          <div class="profile__avatar-container">
+          <button class="profile__avatar-btn">
+            <img
+            class="profile__pencil-icon"
+            src="<%=require('./images/pencil-light.svg')%>"
+            alt="Pencil Icon"
+          />
+          </button>
           <img
             id="profile-avatar"
             alt="Bessie Coleman"
             class="profile__avatar"
           />
+          </div>
+
           <div class="profile__column">
             <h1 class="profile__name">Bessie Coleman</h1>
             <p class="profile__description">Civil Aviator</p>
@@ -152,6 +162,31 @@
         ></button>
         <img class="modal__image" src="" alt="" />
         <p class="modal__caption"></p>
+      </div>
+    </div>
+
+    <div class="modal" id="avatar-modal">
+      <div class="modal__content">
+        <button type="button" class="modal__close-btn">
+          <img id="edit-card-close-btn" class="profile__avatar_x-btn"
+            src="<%=require('./images/x.svg')%>" alt="X Button"/>
+        </button>
+        <h2 class="modal__title">Edit Profile Avatar</h2>
+        <form id="edit-avatar-form" class="modal__form">
+          <label for="profile-avatar-input" class="modal__label">
+            Profile Picture
+            <input
+              id="profile-avatar-input"
+              name="avatar"
+              class="modal__input"
+              placeholder="Paste the link to an image"
+              required
+              type="url"
+            />
+            <span id="profile-avatar-input-error" class="modal__error"></span>
+          </label>
+          <button type="submit" class="modal__submit-btn">Save</button>
+        </form>
       </div>
     </div>
   </body>

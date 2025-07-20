@@ -20,6 +20,13 @@ class Api {
     });
   }
 
+  _checkResponse(res) {
+  if (res.ok) {
+    return res.json();
+  }
+  return Promise.reject(`Error: ${res.status}`);
+}
+
   getUserInfo() {
   return fetch(`${this._baseUrl}/users/me`, {
     headers: this._headers,
@@ -29,6 +36,14 @@ class Api {
     }
     return Promise.reject(`Error: ${res.status}`);
   });
+}
+
+updateAvatar(data) {
+  return fetch(`${this._baseUrl}/users/me/avatar`, {
+    method: "PATCH",
+    headers: this._headers,
+    body: JSON.stringify(data),
+  }).then(this._checkResponse);
 }
 
 editUserInfo({ name, about }) {

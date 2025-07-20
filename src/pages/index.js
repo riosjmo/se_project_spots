@@ -88,6 +88,7 @@ api
 
 const profileEditButton = document.querySelector(".profile__edit-btn");
 const cardModalBtn = document.querySelector(".profile__add-btn");
+const avatarModalBtn = document.querySelector(".profile__avatar-btn");
 const profileName = document.querySelector(".profile__name");
 const profileDescription = document.querySelector(".profile__description");
 
@@ -108,6 +109,12 @@ const cardSubmitBtn = cardModal.querySelector(".modal__submit-btn");
 const cardModalCloseBtn = cardModal.querySelector(".modal__close-btn");
 const cardNameInput = cardModal.querySelector("#add-card-name-input");
 const cardLinkInput = cardModal.querySelector("#add-card-link-input");
+
+const avatarModal = document.querySelector("#avatar-modal");
+const avatarForm = avatarModal.querySelector(".modal__form");
+const avatarSubmitBtn = avatarModal.querySelector(".modal__submit-btn");
+const avatarModalCloseBtn = avatarModal.querySelector(".modal__close-btn");
+const avatarInput = avatarModal.querySelector("#profile-avatar-input");
 
 const previewModal = document.querySelector("#preview-modal");
 const previewModalImageEl = document.querySelector(".modal__image");
@@ -185,6 +192,20 @@ function handleAddCardSubmit(evt) {
   closeModal(cardModal);
 }
 
+function handleAvatarFormSubmit(evt) {
+  evt.preventDefault();
+
+  api
+    .updateAvatar({ avatar: avatarInput.value })
+    .then((data) => {
+      profileAvatar.src = data.avatar;
+      evt.target.reset();
+      disableButton(avatarSubmitBtn, validationConfig);
+      closeModal(avatarModal);
+    })
+    .catch(console.error);
+}
+
 profileEditButton.addEventListener("click", () => {
   editModalNameInput.value = profileName.textContent;
   editModalDescriptionInput.value = profileDescription.textContent;
@@ -212,6 +233,17 @@ previewModalCloseBtn.addEventListener("click", () => {
 cardModalCloseBtn.addEventListener("click", () => {
   closeModal(cardModal);
 });
+
+avatarModalBtn.addEventListener("click", () => {
+  openModal(avatarModal);
+});
+
+avatarModalCloseBtn.addEventListener("click", () => {
+  resetValidation(avatarForm, [avatarInput], validationConfig);
+  closeModal(avatarModal);
+});
+
+avatarForm.addEventListener("submit", handleAvatarFormSubmit);
 
 editFormElement.addEventListener("submit", handleEditFormSubmit);
 cardForm.addEventListener("submit", handleAddCardSubmit);
