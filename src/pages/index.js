@@ -144,13 +144,13 @@ function handleLike(evt, id) {
 
   api.changeLikeStatus(id, isLiked)
     .then((updatedCard) => {
-
       if (updatedCard.isLiked) {
         likeButton.classList.add("card__like-btn_liked");
       } else {
         likeButton.classList.remove("card__like-btn_liked");
       }
     })
+    .catch(console.error)
 }
 
 function getCardElement(data) {
@@ -164,12 +164,9 @@ function getCardElement(data) {
   const cardDeleteBtn = cardElement.querySelector(".card__delete-btn");
 
   // TODO - if the card is liked, set the active class on the card
-  const isLikedByUser =
-    Array.isArray(data.likes) &&
-    data.likes.some((user) => user._id === currentUserId);
-  if (isLikedByUser) {
-    cardLikeBtn.classList.add("card__like-btn_liked");
-  }
+  if (data.isLiked) {
+  cardLikeBtn.classList.add("card__like-btn_liked");
+}
 
   cardNameEl.textContent = data.name;
   cardImageEl.src = data.link;
