@@ -19,6 +19,6 @@ The project is a social media type of website that has many different features a
   It is deployed on Github.
 
   - [Deployement Link: https://riosjmo.github.io/se_project_spots/
-  - Video Link - (https://drive.google.com/file/d/1vwBhFYDokrHkuBxJyXjj-Ur0pNRMzXYZ/view?usp=sharing)
+  - Video Link - (https://www.loom.com/share/3b7075c9d7e949f5ae38bb0011a9f4ea?sid=fe2c0d38-380e-486b-88b6-883076133979)
 
 
