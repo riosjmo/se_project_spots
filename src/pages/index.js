@@ -32,37 +32,6 @@ import {
   disableButton,
 } from "../scripts/validation.js";
 
-// const initialCards = [
-//   {
-//     name: "Val Thorens",
-//     link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/1-photo-by-moritz-feldmann-from-pexels.jpg",
-//   },
-//   {
-//     name: "Restaurant terrace",
-//     link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/2-photo-by-ceiline-from-pexels.jpg",
-//   },
-//   {
-//     name: "An outdoor cafe",
-//     link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/3-photo-by-tubanur-dogan-from-pexels.jpg",
-//   },
-//   {
-//     name: "A very long bridge, over the forest and through the trees",
-//     link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/4-photo-by-maurice-laschet-from-pexels.jpg",
-//   },
-//   {
-//     name: "Tunnel with morning light",
-//     link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/5-photo-by-van-anh-nguyen-from-pexels.jpg",
-//   },
-//   {
-//     name: "Mountain house",
-//     link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/6-photo-by-moritz-feldmann-from-pexels.jpg",
-//   },
-//   {
-//     name: "Golden Gate bridge",
-//     link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/7-photo-by-griffin-wooldridge-from-pexels.jpg",
-//   },
-// ];
-
 const api = new Api({
   baseUrl: "https://around-api.en.tripleten-services.com/v1",
   headers: {
@@ -73,7 +42,6 @@ const api = new Api({
 
 let currentUserId = "";
 
-// destructure the second item in the callback of the .then()
 api
   .getAppInfo()
   .then(([cards, userInfo]) => {
@@ -88,7 +56,9 @@ api
     profileName.textContent = userInfo.name;
     profileDescription.textContent = userInfo.about;
   })
-  .catch(console.error);
+  .catch((error) => {
+  console.error("Failed to delete post:", error);
+  })
 
 // Profile Elements
 const profileEditButton = document.querySelector(".profile__edit-btn");
@@ -154,7 +124,9 @@ function handleLike(evt, id) {
         likeButton.classList.remove("card__like-btn_liked");
       }
     })
-    .catch(console.error);
+    .catch((error) => {
+    console.error("Failed to delete post:", error);
+    })
 }
 
 function getCardElement(data) {
@@ -219,13 +191,13 @@ function handleEditFormSubmit(evt) {
       profileDescription.textContent = data.about;
       closeModal(editModal);
     })
-    .catch(console.error)
+    .catch((error) => {
+    console.error("Failed to delete post:", error);
+    })
     .finally(() => {
       setButtonText(submitBtn, false);
     });
 }
-
-// TODOD - Implement loading text for all other form submissions
 
 function handleDeleteCard(cardElement, cardId) {
   selectedCard = cardElement;
@@ -245,7 +217,9 @@ function handleDeleteSubmit(evt) {
       selectedCard.remove();
       closeModal(deleteModal);
     })
-    .catch(console.error)
+    .catch((error) => {
+    console.error("Failed to delete post:", error);
+    })
     .finally(() => {
       setButtonText(submitBtn, false, "Delete", "Deleting...");
     });
@@ -269,7 +243,9 @@ function handleAddCardSubmit(evt) {
       disableButton(cardSubmitBtn, validationConfig);
       closeModal(cardModal);
     })
-    .catch(console.error)
+    .catch((error) => {
+    console.error("Failed to delete post:", error);
+    })
     .finally(() => {
       setButtonText(submitBtn, false);
     });
@@ -289,7 +265,9 @@ function handleAvatarFormSubmit(evt) {
       disableButton(avatarSubmitBtn, validationConfig);
       closeModal(avatarModal);
     })
-    .catch(console.error)
+    .catch((error) => {
+  console.error("Failed to delete post:", error);
+})
     .finally(() => {
       setButtonText(submitBtn, false);
     });
@@ -328,11 +306,11 @@ cardModalCloseBtn.addEventListener("click", () => {
 });
 
 avatarModalBtn.addEventListener("click", () => {
+  resetValidation(avatarForm, [avatarInput], validationConfig);
   openModal(avatarModal);
 });
 
 avatarModalCloseBtn.addEventListener("click", () => {
-  resetValidation(avatarForm, [avatarInput], validationConfig);
   closeModal(avatarModal);
 });
 
@@ -343,9 +321,9 @@ deleteForm.addEventListener("submit", handleDeleteSubmit);
 editFormElement.addEventListener("submit", handleEditFormSubmit);
 cardForm.addEventListener("submit", handleAddCardSubmit);
 
-const existModalsOverlay = document.querySelectorAll(".modal");
+const modalsOverlay = document.querySelectorAll(".modal");
 
-existModalsOverlay.forEach((modal) => {
+modalsOverlay.forEach((modal) => {
   modal.addEventListener("mousedown", (evt) => {
     if (evt.target === modal) {
       modal.classList.remove("modal_opened");
