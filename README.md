@@ -1,4 +1,6 @@
-# DISCLAIMER: THIS IS A PUBLIC REPO DEPLOYED ON GITHUB PAGES, CHANGES MADE TO THE PROFILE WILL SHOW FOR EVERYONE ELSE TOO
+# DISCLAIMER: 
+
+this is a public repo deployed on github pages, changes made to the profile will show for everyone else too
 
 # Spots:
 
